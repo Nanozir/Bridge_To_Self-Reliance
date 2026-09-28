@@ -67,7 +67,12 @@ p { margin: 0 0 1em; max-width: 62ch; }
 .top nav { display: flex; gap: 1.25rem; flex-wrap: wrap; font-size: 1rem; }
 .top nav a { color: var(--blak); text-decoration: none; padding: .25rem 0; }
 .top nav a:hover { color: var(--fjord); text-decoration: underline; }
-@media (max-width: 760px) { .top nav { display: none; } }
+.top nav a[aria-current="page"] { color: var(--fjord); font-weight: 700; text-decoration: underline; text-decoration-thickness: 3px; text-decoration-color: var(--lykta); }
+@media (max-width: 760px) {
+  .top-inner { padding-top: .5rem; }
+  .top nav { flex-wrap: nowrap; overflow-x: auto; width: 100%; gap: 1rem; padding-bottom: .5rem; font-size: .95rem; scrollbar-width: none; }
+  .top nav a { white-space: nowrap; }
+}
 
 /* Hero */
 .hero { padding: clamp(3.5rem, 8vw, 7rem) 0 1rem; }
@@ -178,3 +183,56 @@ p { margin: 0 0 1em; max-width: 62ch; }
 
 .foot { border-top: 1px solid var(--sten); padding: 2rem 0; font-size: .95rem; color: var(--mjuk); }
 .foot p { margin: 0 0 .3rem; }
+
+/* ===== Kursmaterial-sidan ===== */
+.mat-intro { padding: clamp(2.5rem, 6vw, 4.5rem) 1.5rem 1rem; }
+.mat-intro h1 { font-size: clamp(2.4rem, 1.4rem + 4vw, 4.5rem); letter-spacing: -.04em; }
+.mat-layout { display: grid; grid-template-columns: 17rem minmax(0, 1fr); gap: 3rem; align-items: start; padding-bottom: 4rem; }
+@media (max-width: 900px) { .mat-layout { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; } }
+
+.toc { position: sticky; top: 5rem; max-height: calc(100vh - 6rem); overflow-y: auto; font-size: .95rem; }
+@media (max-width: 900px) { .toc { position: static; max-height: none; background: var(--yta); border-radius: 10px; padding: .75rem 1rem; } }
+.toc summary { font-weight: 800; cursor: pointer; margin-bottom: .5rem; }
+.toc ol, .toc ul { list-style: none; margin: 0; padding: 0; }
+.toc ul { padding-left: .8rem; border-left: 2px solid var(--sten); margin: .3rem 0 1rem; }
+.toc a { color: var(--mjuk); text-decoration: none; display: block; padding: .15rem 0; line-height: 1.35; }
+.toc a:hover { color: var(--fjord); text-decoration: underline; }
+.toc .toc-part { color: var(--blak); font-weight: 800; }
+
+.part { background: var(--yta); border-radius: 12px; padding: clamp(1.25rem, 4vw, 3rem); margin-bottom: 2.5rem; }
+.part-head { border-bottom: 3px solid var(--blak); margin-bottom: 2rem; padding-bottom: 1rem; }
+.part-title { margin-bottom: .3em; }
+.part-head p { color: var(--mjuk); margin: 0; }
+
+.doc { max-width: 46rem; }
+.doc h3 { font-size: 1.5rem; margin: 2.8rem 0 .8rem; padding-top: .2rem; }
+.doc h4 { font-size: 1.15rem; margin: 1.8rem 0 .5rem; }
+.doc > :first-child { margin-top: 0; }
+.doc p { margin-bottom: .8em; }
+.doc ul { padding-left: 1.2rem; }
+.doc li p { margin: 0 0 .3em; }
+.doc .q { margin: 1.1rem 0 .2rem; }
+.lines { height: calc(var(--n) * 2rem); background: repeating-linear-gradient(to bottom, transparent 0 calc(2rem - 1px), var(--sten) calc(2rem - 1px) 2rem); margin-bottom: .6rem; }
+.blank { display: inline-block; min-width: 8rem; border-bottom: 1px solid var(--mjuk); vertical-align: -.15em; margin: 0 .2rem; }
+.box { display: inline-block; width: .95em; height: .95em; border: 2px solid var(--mjuk); border-radius: 3px; vertical-align: -.12em; margin: 0 .45em 0 .2em; }
+
+.table-wrap { overflow-x: auto; margin: 1rem 0 1.5rem; }
+.doc table { border-collapse: collapse; width: 100%; font-size: 1rem; }
+.doc th, .doc td { border-bottom: 1px solid var(--sten); padding: .5rem .75rem .5rem 0; text-align: left; vertical-align: top; }
+.doc th { border-bottom: 2px solid var(--blak); }
+
+.callout { border-left: 5px solid var(--lykta); background: var(--dimma); padding: 1rem 1.25rem; margin: 1.25rem 0; border-radius: 0 8px 8px 0; }
+.callout-title { font-weight: 800; margin-bottom: .3rem !important; }
+.callout p:last-child { margin-bottom: 0; }
+
+@media print {
+  .top, .toc, .skip, .foot, .mat-intro .btn { display: none !important; }
+  body { background: #fff; color: #000; font-size: 11pt; }
+  .mat-layout { display: block; }
+  .part { padding: 0; border-radius: 0; }
+  .part + .part { break-before: page; }
+  .doc { max-width: none; }
+  .doc h3 { break-after: avoid; }
+  .lines { background: repeating-linear-gradient(to bottom, transparent 0 calc(2rem - 1px), #999 calc(2rem - 1px) 2rem); }
+  a { color: #000; text-decoration: none; }
+}
