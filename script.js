@@ -1,7 +1,7 @@
 /* ===== Inställningar ===== */
 // Skriv in e-postadressen här när den finns, t.ex. "kontakt@dindoman.se".
 // Så länge fältet är tomt visas ingen e-postknapp.
-const KONTAKT_EPOST = "";
+const KONTAKT_EPOST = "ali.osman@hotmail.se";
 
 /* ===== Veckornas innehåll (från kursledarhandboken) ===== */
 const VECKOR = [
