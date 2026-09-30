@@ -9,5 +9,5 @@ Statisk sida (HTML, CSS, JS). Inga ramverk, inga externa tjänster, inga kakor. 
 
 ## Ändra innehåll
 - Veckornas texter och e-postadress: överst i `script.js`.
-- Startsidans text: `index.html`. Kursmaterialet: `material.html`. Presentationen: `presentation.html`.
+- Startsidans text: `index.html`. Kursmaterialet: `material.html`. Presentationen: `presentation.html` (logik i `deck.js`).
 - Färger: variablerna överst i `style.css`.
