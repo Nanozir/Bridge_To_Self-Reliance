@@ -1,6 +1,6 @@
 # Bro till självständighet – webbplats
 
-Statisk sida (HTML, CSS, JS). Inga ramverk, inga externa tjänster, inga kakor. Typsnittet (Atkinson Hyperlegible Next, OFL-licens) ligger i `fonts/`.
+Statisk sida (HTML, CSS, JS). Inga ramverk, inga externa tjänster, inga kakor. Typsnittet (Atkinson Hyperlegible Next, OFL-licens) ligger i roten (atkinson-*.woff2).
 
 ## Publicera med GitHub Pages
 1. Ladda upp alla filer i roten av repot (branch `main`).
@@ -9,5 +9,5 @@ Statisk sida (HTML, CSS, JS). Inga ramverk, inga externa tjänster, inga kakor. 
 
 ## Ändra innehåll
 - Veckornas texter och e-postadress: överst i `script.js`.
-- Startsidans text: `index.html`. Kursmaterialet: `material.html`.
+- Startsidans text: `index.html`. Kursmaterialet: `material.html`. Presentationen: `presentation.html`.
 - Färger: variablerna överst i `style.css`.

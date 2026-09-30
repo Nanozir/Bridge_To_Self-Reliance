@@ -1,6 +1,6 @@
-@font-face { font-family: "Atkinson"; src: url("fonts/atkinson-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
-@font-face { font-family: "Atkinson"; src: url("fonts/atkinson-700.woff2") format("woff2"); font-weight: 700; font-display: swap; }
-@font-face { font-family: "Atkinson"; src: url("fonts/atkinson-800.woff2") format("woff2"); font-weight: 800; font-display: swap; }
+@font-face { font-family: "Atkinson"; src: url("atkinson-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Atkinson"; src: url("atkinson-700.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Atkinson"; src: url("atkinson-800.woff2") format("woff2"); font-weight: 800; font-display: swap; }
 
 :root {
   --dimma: #eef2f1;   /* bakgrund */
@@ -235,4 +235,83 @@ p { margin: 0 0 1em; max-width: 62ch; }
   .doc h3 { break-after: avoid; }
   .lines { background: repeating-linear-gradient(to bottom, transparent 0 calc(2rem - 1px), #999 calc(2rem - 1px) 2rem); }
   a { color: #000; text-decoration: none; }
+}
+
+/* ===== Presentation ===== */
+.deck-main { padding-top: clamp(2rem, 5vw, 3.5rem); padding-bottom: 3rem; }
+.deck-head h1 { font-size: clamp(1.8rem, 1.2rem + 2.4vw, 3rem); letter-spacing: -.03em; margin-bottom: .3em; }
+.deck-head p { color: var(--mjuk); }
+kbd { font: inherit; font-weight: 700; border: 1px solid var(--sten); border-bottom-width: 3px; border-radius: 5px; padding: 0 .35em; }
+
+.deck { container-type: inline-size; outline-offset: 6px; cursor: pointer; user-select: none; }
+.stage { position: relative; aspect-ratio: 16 / 9; width: 100%; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 0 var(--sten), 0 12px 40px -18px rgba(21, 49, 59, .35); }
+.deck:fullscreen { background: #0b1a1f; display: grid; place-items: center; }
+.deck:fullscreen .stage { width: min(100vw, 177.78vh); border-radius: 0; }
+
+.slide { position: absolute; inset: 0; background: var(--yta); color: var(--blak); padding: 6cqw 7cqw; display: flex; flex-direction: column; justify-content: center; font-size: 2.1cqw; line-height: 1.45; }
+.slide[hidden] { display: none; }
+.slide h2 { font-size: 4.6cqw; line-height: 1.05; letter-spacing: -.035em; margin: 0 0 .5em; max-width: 22ch; }
+.slide h3 { font-size: 1.15em; margin: 0 0 .3em; letter-spacing: -.01em; }
+.slide p { margin: 0 0 .7em; max-width: 55ch; }
+.slide ul, .slide ol { margin: 0; padding-left: 1.1em; }
+.slide li { margin-bottom: .45em; }
+.slide .small { font-size: .88em; }
+.eyebrow { font-weight: 800; text-transform: uppercase; letter-spacing: .08em; font-size: .72em !important; color: var(--fjord); margin-bottom: 1.2em !important; }
+.eyebrow::before { content: ""; display: inline-block; width: 2.2em; height: .3em; background: var(--lykta); vertical-align: middle; margin-right: .7em; border-radius: 2px; }
+.doc-tag { font-size: .72em !important; font-weight: 700; color: var(--mjuk); margin-bottom: .8em !important; }
+.slide .big { font-size: 1.55em; line-height: 1.3; font-weight: 700; max-width: 30ch; }
+
+.dark { background: #15313b; color: #eef2f1; }
+.dark .eyebrow { color: #f0bb4a; }
+.title-slide h2 { font-size: 7.2cqw; max-width: 14ch; }
+.title-slide .sub { font-size: 1.6em; color: #c7d6d3; }
+.title-slide .meta { margin-top: 1.5em; color: #c7d6d3; font-size: .95em; }
+.slide-bridge { position: absolute; right: 5cqw; bottom: 0; width: 42cqw; fill: none; stroke: #f0bb4a; stroke-width: 5; opacity: .9; }
+
+.cols2 { columns: 2; column-gap: 4cqw; }
+.cols2 li { break-inside: avoid; }
+.checks { list-style: none; padding: 0 !important; }
+.checks li { padding-left: 1.6em; position: relative; }
+.checks li::before { content: ""; position: absolute; left: 0; top: .2em; width: .95em; height: .95em; border: .15em solid var(--fjord); border-radius: .2em; }
+
+.phases, .weeks6 { display: grid; gap: 1.6cqw; }
+.phases { grid-template-columns: repeat(4, 1fr); }
+.weeks6 { grid-template-columns: repeat(3, 1fr); font-size: .85em; }
+.phases > div, .weeks6 > div, .cards > div { background: var(--dimma); border-radius: 1cqw; padding: 1.8cqw; border-top: .5cqw solid var(--fjord); }
+.phases b, .weeks6 b { display: block; font-size: 2em; line-height: 1; color: var(--fjord); margin-bottom: .3em; }
+.phases p, .weeks6 p, .cards p { font-size: .85em; margin-bottom: .3em; }
+.phases .when { font-weight: 700; color: var(--mjuk); }
+
+.cards { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5cqw; }
+.cards.three { grid-template-columns: repeat(3, 1fr); }
+.cards > div { border-top-color: var(--lykta); }
+
+.split { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4cqw; align-items: start; }
+.scale li::marker { color: var(--fjord); font-weight: 800; }
+.callout-slide { border-left: .6cqw solid var(--lykta); background: var(--dimma); padding: 2cqw 2.4cqw; border-radius: 0 1cqw 1cqw 0; font-size: 1.05em; }
+.callout-slide p { margin: 0; }
+.note-slide { margin-top: 1.2em !important; font-size: .8em; color: var(--mjuk); max-width: 70ch !important; }
+
+.flow { list-style: none; padding: 0 !important; counter-reset: f; display: grid; grid-template-columns: repeat(7, 1fr); gap: 1cqw; margin-top: 1em !important; }
+.flow li { counter-increment: f; border-top: .35cqw solid var(--blak); padding-top: 1.2em; position: relative; font-weight: 700; font-size: .85em; line-height: 1.25; }
+.flow li::before { content: counter(f); position: absolute; top: -1.05em; left: 0; width: 1.8em; height: 1.8em; border-radius: 50%; background: var(--lykta); color: #15313b; display: grid; place-items: center; font-weight: 800; }
+
+.workflow { list-style: none; padding: 0 !important; counter-reset: w; display: grid; grid-template-columns: 1fr 1fr; grid-auto-flow: column; grid-template-rows: repeat(5, auto); column-gap: 4cqw; font-size: .82em; }
+.workflow li { counter-increment: w; display: grid; grid-template-columns: 2em 1fr auto; align-items: baseline; gap: .6em; padding: .45em 0; border-bottom: 1px solid var(--sten); margin: 0; }
+.workflow li::before { content: counter(w); font-weight: 800; color: var(--fjord); }
+.workflow span { color: var(--mjuk); font-size: .9em; white-space: nowrap; }
+
+.deck-controls { display: flex; align-items: center; gap: .75rem; margin-top: 1.25rem; flex-wrap: wrap; }
+.deck-controls .btn { padding: .55rem 1.1rem; }
+.counter { margin: 0; font-weight: 700; min-width: 4.5em; text-align: center; }
+#fs { margin-left: auto; }
+.deck-progress { height: 4px; background: var(--sten); border-radius: 2px; margin-top: 1rem; overflow: hidden; }
+.deck-progress span { display: block; height: 100%; width: 0; background: var(--lykta); transition: width .25s; }
+@media (prefers-reduced-motion: reduce) { .deck-progress span { transition: none; } }
+
+@media print {
+  .deck-head, .deck-controls, .deck-progress { display: none !important; }
+  @page { size: landscape; margin: 0; }
+  .stage { aspect-ratio: auto; box-shadow: none; border-radius: 0; overflow: visible; }
+  .slide, .slide[hidden] { position: relative; display: flex; aspect-ratio: 16 / 9; break-after: page; }
 }
